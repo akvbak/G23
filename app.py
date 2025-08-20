@@ -66,6 +66,9 @@ def edit(org_id):
     if request.method == 'POST':
         name = request.form.get('name')
         type_ = request.form.get('type')
+        if type_ == 'custom':
+            custom_type = request.form.get('customType')
+            type_ = custom_type
         location = request.form.get('location')
         yearFounded = request.form.get('yearFounded')
         contactEmail = request.form.get('contactEmail')
@@ -74,6 +77,8 @@ def edit(org_id):
             errors.append('Name is required.')
         if not type_:
             errors.append('Type is required.')
+        elif type_ == 'custom' or type_ == '':
+            errors.append('Please enter a valid organization type.')
         if not contactEmail or not re.match(EMAIL_REGEX, contactEmail):
             errors.append('Valid email is required.')
         if errors:

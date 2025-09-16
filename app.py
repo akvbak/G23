@@ -9,7 +9,13 @@ init_db()
 
 EMAIL_REGEX = r'^[\w\.-]+@[\w\.-]+\.\w+$'
 
+# Landing page is now the default route
 @app.route('/')
+def landing():
+    return render_template('landing.html')
+
+# Organizations list
+@app.route('/organizations')
 def home():
     orgs = Organization.all()
     return render_template('index.html', organizations=orgs)

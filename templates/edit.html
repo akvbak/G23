@@ -42,7 +42,8 @@
             <input type="email" class="form-control" id="contactEmail" name="contactEmail" value="{{ org[5] }}" required>
         </div>
         <button type="submit" class="btn btn-success">Update</button>
-        <a href="/organizations/{{ org[0] }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">Cancel</a>
+
     </form>
     {% else %}
     <div class="alert alert-danger">Organization not found.</div>

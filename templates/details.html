@@ -22,7 +22,7 @@
     <form id="delete-form-{{ org[0] }}" action="/delete/{{ org[0] }}" method="POST" style="display:inline;">
         <button type="button" class="btn btn-danger" onclick="confirmDelete({{ org[0] }})">Delete</button>
     </form>
-    <a href="/" class="btn btn-secondary">Back</a>
+    <a href="{{ url_for('home') }}" class="btn btn-secondary">Back</a>
     {% else %}
     <div class="alert alert-danger">Organization not found.</div>
     {% endif %}
